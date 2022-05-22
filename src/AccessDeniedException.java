@@ -1,5 +1,5 @@
 public class AccessDeniedException extends Exception {
-    public AccessDeniedException(String  massage) {
-        super(massage);
+    public AccessDeniedException() {
+        super("Отказано в доступе. Возраст менее 18 лет!");
     }
 }

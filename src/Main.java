@@ -26,11 +26,11 @@ public class Main {
             return user;
             }
         }
-        throw new UserNotFoundException("Пользователь не найден");
+        throw new UserNotFoundException();
     }
     public static void validateUser(User user) throws AccessDeniedException {
         if (user.getAge() < 18) {
-            throw new AccessDeniedException("Отказано в доступе. Возраст менее 18 лет!");
+            throw new AccessDeniedException();
         } else {
             System.out.println("\nДоступ предоставлен!");
         }
