@@ -1,15 +1,29 @@
 import java.util.Scanner;
 
 public class Main {
+    public static String login;
+    public static String password;
 
     public static void main(String[] args) throws UserNotFoundException, AccessDeniedException {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите логин:");
-        String login = scanner.nextLine();
-        System.out.println("Введите пароль:");
-        String password = scanner.nextLine();
-        getUserByLoginAndPassword(login, password);
-        validateUser(getUserByLoginAndPassword(login, password));
+        while (true) {
+            System.out.println("Введите ЛОГИН и ПАРОЛЬ. Для выхода введите 'exit'.");
+            String input = scanner.nextLine();
+            if (input.equals("exit")) {
+                System.out.println("Пока!");
+                break;
+            }
+            try {
+                String[] parts = input.split(" ");
+                login = parts[0];
+                password = parts[1];
+                getUserByLoginAndPassword(login, password);
+                validateUser(getUserByLoginAndPassword(login, password));
+                break;
+            } catch (ArrayIndexOutOfBoundsException exception) {
+                System.out.println("Не верный ввод пары ЛОГИН  ПАРОЛЬ.\n");
+            }
+        }
     }
 
     public static User[] getUsers() {
@@ -23,11 +37,12 @@ public class Main {
         User[] users = getUsers();
         for (User user : users) {
             if (user.getLogin().equals(login) && user.getPassword().equals(password)) {
-            return user;
+                return user;
             }
         }
         throw new UserNotFoundException();
     }
+
     public static void validateUser(User user) throws AccessDeniedException {
         if (user.getAge() < 18) {
             throw new AccessDeniedException();
