@@ -13,32 +13,12 @@ public class User {
         this.age = age;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public String getLogin() {
         return login;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
     public int getAge() {
         return age;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPassword() {
