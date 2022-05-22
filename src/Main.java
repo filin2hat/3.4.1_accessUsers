@@ -14,7 +14,7 @@ public class Main {
 
     public static User[] getUsers() {
         User user1 = new User("John", "superjohn", "qwerty", "john@mail.com", 23);
-        User user2 = new User("Mary", "lalala", "123456", "mary@mail.com", 8);
+        User user2 = new User("Mery", "lalala", "123456", "mary@mail.com", 8);
         User user3 = new User("Tom", "yourdaddy", "qazwsx", "tom@mail.com", 40);
         return new User[]{user1, user2, user3};
     }
