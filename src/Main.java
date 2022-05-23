@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) throws UserNotFoundException, AccessDeniedException {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("Введите ЛОГИН и ПАРОЛЬ. Для выхода введите 'exit'.");
+            System.out.println("\nВведите ЛОГИН и ПАРОЛЬ. Для выхода введите 'exit'.");
             String input = scanner.nextLine();
             if (input.equals("exit")) {
                 System.out.println("Пока!");
@@ -17,7 +17,6 @@ public class Main {
                 String[] parts = input.split(" ");
                 login = parts[0];
                 password = parts[1];
-                getUserByLoginAndPassword(login, password);
                 validateUser(getUserByLoginAndPassword(login, password));
                 break;
             } catch (ArrayIndexOutOfBoundsException exception) {
